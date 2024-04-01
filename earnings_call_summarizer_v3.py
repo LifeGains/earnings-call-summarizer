@@ -150,7 +150,7 @@ def summarize_directly_from_text_variable(text):
     # response = openai.Completion.create(
         model="gpt-3.5-turbo", # Or whichever is the latest version
         messages=[
-            {"role": "user", "content": "Summarize the following text into 5 bullet points for an Executive Summary Section, 3 bullet points for a Positive Highlights section, and 3 bullet points for a Negative Highlights section. Use numbers to describe whenever possible:\n" + text}
+            {"role": "user", "content": "Summarize the following text into 5 bullet points for an Executive Summary Section, 3 bullet points for a Positive Highlights section, and 3 bullet points for a Negative Highlights section, using as many exact numbers and percentages as you can:\n" + text}
         ],
         # max_tokens=150,  # Adjust based on your needs
         # temperature=0.5,  # Adjust for creativity; lower values are more direct
