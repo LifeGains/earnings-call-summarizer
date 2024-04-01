@@ -8,4 +8,3 @@ Requests==2.31.0
 selenium==4.19.0
 streamlit==1.32.1
 webdriver-manager==4.0.1
-chromedriver_installer==2.10
