@@ -49,15 +49,16 @@ def get_text(url):
     else:
 
         # Set up Chrome options
-        # chrome_options = Options()
-        # chrome_options.add_argument("--headless")  # Ensure GUI is off
-        # chrome_options.add_argument("--no-sandbox")  # Bypass OS security model
-        # chrome_options.add_argument("--disable-dev-shm-usage")  # Overcome limited resource problems
+        chrome_options = Options()
+        chrome_options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36')
+        chrome_options.add_argument("--headless")  # Ensure GUI is off
+        chrome_options.add_argument("--no-sandbox")  # Bypass OS security model
+        chrome_options.add_argument("--disable-dev-shm-usage")  # Overcome limited resource problems
 
-        # Set up the Selenium driver
-        driver = webdriver.Chrome()
-        # Headless setting off all kinds of alarms.
-        # driver = webdriver.Chrome(options=chrome_options)
+        # Selenium driver that opens a window
+        # driver = webdriver.Chrome()
+        # Headless Selenium will set off all kinds of alarms.
+        driver = webdriver.Chrome(options=chrome_options)
 
         # Go to the webpage
         driver.get(url)
