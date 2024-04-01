@@ -208,7 +208,7 @@ def app():
             with st.spinner('Generating bullet point summary...'):
                 url_name = get_url_from_google(quarter_type, year_type, company_name)
                 st.write("URL found: " + url_name)
-                st.write("If there is a pop-up, don't worry it will automatically close. We need it to simulate human behavior.")
+                st.write("If there is a pop-up, **it will automatically close**. We need it to simulate human behavior.")
                 text = get_text(url_name)
                 # Print the total word count:
                 st.write("Summarizing " + str(len(text.split())) + " words...")
