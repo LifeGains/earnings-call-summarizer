@@ -49,16 +49,16 @@ def get_text(url):
     else:
 
         # Set up Chrome options
-        chrome_options = Options()
-        chrome_options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36')
-        chrome_options.add_argument("--headless")  # Ensure GUI is off
-        chrome_options.add_argument("--no-sandbox")  # Bypass OS security model
-        chrome_options.add_argument("--disable-dev-shm-usage")  # Overcome limited resource problems
+        # chrome_options = Options()
+        # chrome_options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36')
+        # chrome_options.add_argument("--headless")  # Ensure GUI is off
+        # chrome_options.add_argument("--no-sandbox")  # Bypass OS security model
+        # chrome_options.add_argument("--disable-dev-shm-usage")  # Overcome limited resource problems
 
         # Selenium driver that opens a window
-        # driver = webdriver.Chrome()
+        driver = webdriver.Chrome()
         # Headless Selenium will set off all kinds of alarms.
-        driver = webdriver.Chrome(options=chrome_options)
+        # driver = webdriver.Chrome(options=chrome_options)
 
         # Go to the webpage
         driver.get(url)
@@ -150,7 +150,7 @@ def summarize_directly_from_text_variable(text):
     # response = openai.Completion.create(
         model="gpt-3.5-turbo", # Or whichever is the latest version
         messages=[
-            {"role": "user", "content": "Given the following text, give 5 bullet points for an Executive Summary Section, 3 bullet points for a Positive Highlights section, and 3 bullet points for a Negative Highlights section:\n" + text}
+            {"role": "user", "content": "Summarize the following text into 5 bullet points for an Executive Summary Section, 3 bullet points for a Positive Highlights section, and 3 bullet points for a Negative Highlights section. Use numbers to describe whenever possible:\n" + text}
         ],
         # max_tokens=150,  # Adjust based on your needs
         # temperature=0.5,  # Adjust for creativity; lower values are more direct
