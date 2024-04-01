@@ -150,7 +150,7 @@ def summarize_directly_from_text_variable(text):
     # response = openai.Completion.create(
         model="gpt-3.5-turbo", # Or whichever is the latest version
         messages=[
-            {"role": "user", "content": "Summarize the following text into 5 bullet points for an Executive Summary Section, 3 bullet points for a Positive Highlights section, and 3 bullet points for a Negative Highlights section, using as many exact numbers and percentages as you can:\n" + text}
+            {"role": "user", "content": "Summarize the following text into 5 bullet points for an Executive Summary Section, 3 bullet points for a Positive Highlights section, and 3 bullet points for a Negative Highlights section. Using numbers and percentages in the bullet points is preferred:\n" + text}
         ],
         # max_tokens=150,  # Adjust based on your needs
         # temperature=0.5,  # Adjust for creativity; lower values are more direct
@@ -198,12 +198,13 @@ def app():
             ,placeholder="Eg. Apple, Tesla, Costco, Nvidia, Gamestop"
         )
         quarter_options = ["Q1", "Q2", "Q3", "Q4"]
-        quarter_type = st.selectbox("Choose a quarter", quarter_options)
+        quarter_type = st.selectbox("Choose a quarter", quarter_options, index=3)
 
         year_desc = np.arange(datetime.now().year, 2009, -1)
         year_options = year_desc
         year_type = st.selectbox('Choose a year'
-                                    ,year_options)
+                                    ,year_options
+                                    ,index=1)
         
         if st.form_submit_button("Submit"):
             with st.spinner('Generating bullet point summary...'):
